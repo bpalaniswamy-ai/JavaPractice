@@ -1,15 +1,15 @@
 package Practice;
 
 public class Employee {
-    private int id;
+    private static int idInitializer = 1000;
+    private final int id;
     private String name;
     private int age;
     private String gender;
     private int salary;
     private String department;
 
-    public Employee(int id, String name, int age, String gender, int salary, String department) {
-        this.id = id;
+    public Employee( String name, int age, String gender, int salary, String department) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -21,10 +21,6 @@ public class Employee {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -65,6 +61,11 @@ public class Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    {
+        id = ++idInitializer;
+        System.out.println("Employee class created");
     }
 
     @Override
